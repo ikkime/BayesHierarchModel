@@ -34,7 +34,6 @@ mod <- DTH ~ 1 + offset(log(CNT)) +
   # Age terms
   f(AGEC, model = "rw1", scale.model = TRUE, hyper = list(theta = pc.prec)) + 
   
-  
   # Temporal terms
   f(PERIOD, model = "rw1", scale.model = TRUE, hyper = list(theta = pc.prec)) +
   
