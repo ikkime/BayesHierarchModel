@@ -6,7 +6,7 @@ phi =list(prior = "pc", param = c(phi.u, phi.alpha))
 
 # Bayesian spatial model
 
-mod <- DTH ~ offset(log(CNT)) + 
+mod <- DTH ~ 1 + offset(log(CNT)) + 
   
   # Age terms
   f(AGEC, model="rw1", scale.model = TRUE, hyper = list(theta = pc.prec)) +
