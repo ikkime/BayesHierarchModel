@@ -54,12 +54,16 @@ le.st1 <- inla(mod, family="poisson", data=dat,
 
 # Bayesian spatio-temporal model 2
 
-mod <- DTH ~ 1 + offset(log(CNT)) + AGEC + PERIOD + 
+mod <- DTH ~ 1 + offset(log(CNT)) + 
+
+  # Common terms
+  AGEC + PERIOD + 
   
   LOG_TOT_POP + LAGE65_PRO + LOG_CTRB + LOG_MED + LN_BUIS +
   
+  # Spatial terms and termporal terms
   f(PERIOD1, model = "rw1", scale.model = TRUE, hyper = list(theta = pc.prec), group = AGEC1) +
-  
+
   f(id, model="bym", graph = H, hyper = list(theta = pc.prec)) + 
   
   f(id2, PERIOD1, model="bym", graph = H, hyper = list(theta = pc.prec)) + 
