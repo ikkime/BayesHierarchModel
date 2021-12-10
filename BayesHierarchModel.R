@@ -81,7 +81,6 @@ le.st2 <- inla(mod, family="poisson", data=dat,
             control.inla = list(strategy = "gaussian"),
             control.predictor = list(compute = TRUE))
 
-
 # Bayesian spatio-temporal model 3
 
 mod <- DTH ~ offset(log(CNT)) + 
