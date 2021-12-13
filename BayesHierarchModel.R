@@ -113,7 +113,7 @@ le.st3 <- inla(mod, family="poisson", data=dat,
                control.predictor = list(compute = TRUE))
 
 # Generation of posterior predictive distribution
-mat.post = matrix(,nrow = length(dat[,1]), ncol = nsim)
+mat.post = matrix(,nrow = length(dat[,1]), ncol = 1000)
 
 for (i in c(1:length(dat[,1]))){
   mat.post[i,] <- inla.rmarginal(1000, le.st3$marginals.fitted.values[[i]])
